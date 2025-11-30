@@ -8,7 +8,7 @@ help:
 # just uncomment when task is done and ready to be checked
 TASKS_TO_ANALYZE =
 # ---------------------
-# TASKS_TO_ANALYZE += c1_common_concepts
+TASKS_TO_ANALYZE += c1_common_concepts
 # ---------------------
 # TASKS_TO_ANALYZE += c3_ownership_and_memory
 # ---------------------

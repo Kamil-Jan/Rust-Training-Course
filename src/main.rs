@@ -4,5 +4,4 @@ mod tasks;
 #[cfg(test)]
 mod tests;
 
-fn main() {
-}
+fn main() {}

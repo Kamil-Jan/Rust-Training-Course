@@ -18,7 +18,7 @@ fn test_second_largest() {
 fn test_longest_increasing_subsequence() {
     assert_eq!(
         longest_increasing_subsequence(&[10, 9, 5, 2, 8, 16, 4, 101]),
-        vec![5, 8, 16, 101]
+        vec![2, 8, 16, 101] // the task said that there will be only one LIS....
     );
     assert_eq!(longest_increasing_subsequence(&[0, 1, 0, 3, 2, 3]), vec![0, 1, 2, 3]);
 }

@@ -14,7 +14,7 @@ TASKS_TO_ANALYZE =
 # ---------------------
 # TASKS_TO_ANALYZE += c4_structs_methods_enums_pattern_matching
 # ---------------------
-# TASKS_TO_ANALYZE += c5_collections
+TASKS_TO_ANALYZE += c5_collections
 # ---------------------
 # TASKS_TO_ANALYZE += c6_error_handling_tests_docs
 # ---------------------

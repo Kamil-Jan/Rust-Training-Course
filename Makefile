@@ -18,7 +18,7 @@ TASKS_TO_ANALYZE =
 # ---------------------
 # TASKS_TO_ANALYZE += c6_error_handling_tests_docs
 # ---------------------
-# TASKS_TO_ANALYZE += c7_generics_traits_lifetimes
+TASKS_TO_ANALYZE += c7_generics_traits_lifetimes
 # ---------------------
 # TASKS_TO_ANALYZE += c8_iterators_and_closures
 # ---------------------

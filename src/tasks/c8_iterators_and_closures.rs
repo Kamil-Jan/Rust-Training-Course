@@ -14,7 +14,17 @@ use std::collections::HashMap;
 // If some words have the same frequency, return them in alphabetical order.
 
 pub fn word_frequencies(text: &str) -> Vec<(String, usize)> {
-    !unimplemented!()
+    let mut freq_map = HashMap::new();
+
+    text.split_whitespace()
+        .map(|word| word.to_lowercase())
+        .for_each(|word| *freq_map.entry(word).or_insert(0) += 1);
+
+    let mut sorted_freq: Vec<_> = freq_map.into_iter().collect();
+    sorted_freq.sort_by(|(word1, count1), (word2, count2)| {
+        count2.cmp(count1).then_with(|| word1.cmp(word2))
+    });
+    sorted_freq
 }
 
 // ----- 2 --------------------------------------
@@ -26,7 +36,20 @@ pub fn word_frequencies(text: &str) -> Vec<(String, usize)> {
 // If some letters have the same frequency, return them in alphabetical order.
 
 pub fn top_k_most_common_letters(text: &str, k: usize) -> Vec<(char, usize)> {
-    !unimplemented!()
+    let mut freq_map = HashMap::new();
+
+    text.chars()
+        .filter(|c| c.is_alphabetic())
+        .flat_map(|c| c.to_lowercase())
+        .for_each(|ch| *freq_map.entry(ch).or_insert(0) += 1);
+
+    let mut sorted_freq: Vec<_> = freq_map.into_iter().collect();
+
+    sorted_freq.sort_by(|(char1, count1), (char2, count2)| {
+        count2.cmp(count1).then_with(|| char1.cmp(char2))
+    });
+
+    sorted_freq.into_iter().take(k).collect()
 }
 
 // CLOSURES
@@ -41,7 +64,12 @@ pub fn top_k_most_common_letters(text: &str, k: usize) -> Vec<(char, usize)> {
 // You must use closures in filtering and sorting.
 
 pub fn filter_and_sort_names(names: Vec<String>, minimum_length: usize) -> Vec<String> {
-    !unimplemented!()
+    let mut filtered: Vec<_> =
+        names.into_iter().filter(|name| name.len() >= minimum_length).collect();
+
+    filtered.sort_by_key(|name| name.to_lowercase());
+
+    filtered
 }
 
 // ----- 4 --------------------------------------
@@ -52,5 +80,15 @@ pub fn filter_and_sort_names(names: Vec<String>, minimum_length: usize) -> Vec<S
 // - Returns the grouped map, sorted internally by student names.
 
 pub fn group_students_by_grade(students: Vec<(String, u32)>) -> HashMap<u32, Vec<String>> {
-    !unimplemented!()
+    let mut groups = HashMap::new();
+
+    students.into_iter().for_each(|(name, grade)| {
+        groups.entry(grade).or_insert(vec![]).push(name);
+    });
+
+    for (_, students) in groups.iter_mut() {
+        students.sort_by_key(|student| student.to_lowercase());
+    }
+
+    groups
 }
